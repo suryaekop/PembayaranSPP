@@ -2,7 +2,7 @@
       <div class="py-4">
     <div class="container">
     <div class="title border-bottom d-flex align-item-center justify-content-between py-2">
-    <h5>Sistem Informasi Pembayaran SPP</h5>
+    <h5>Sistem Informasi Pembayaran SPP Berbasis Web</h5>
     <div class="d-flex align-item-center">
       <span class="me-2">View As</span>
       <button class="btn btn-outline-secondary py-1 px-3" @click="isGrid=!isGrid">{{ isGrid?'Grid':'List' }}</button>
