@@ -15,6 +15,12 @@ export default {
   {src : 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', body:true}
 },
 
+ssr:true,
+loading: {
+  color: 'red',
+  height: '10px',
+},
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
