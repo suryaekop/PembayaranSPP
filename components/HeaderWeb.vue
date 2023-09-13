@@ -24,6 +24,9 @@
         <li class="nav-item">
         <a class="nav-link" aria-current="page" href="/latihan1">Latihan If</a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="/form">Form</a>
+        </li>
         </ul>
         </div>
         </div>
