@@ -17,14 +17,8 @@
       </div>
     </div>
   </div>
-  <div>
-        <h3>Hasil Submit Form </h3>
-        <ul>
-            <li v-for="daftarsiswa in inputSiswa" :key="daftarsiswa">{{ form }}</li>
-        </ul>
-    </div>
     <div class="list-task row">
-      <CardItem v-for="(daftarsiswa,s) in form" :key="s" :student="daftarsiswa" :isGrid="isGrid" />
+      <CardItem v-for="(daftarsiswa,s) in inputSiswa" :key="s" :form="daftarsiswa" :isGrid="isGrid" />
     </div>
     <form v-on:submit.prevent="simpanSiswa">
     <div class="action py-2">
@@ -100,14 +94,7 @@ export default {
       inputSiswa:[],
     }
   },
-  methods:{
-    simpanSiswa(){
-      const daftarsiswa = {
-        form: this.form
-      }
-      this.inputSiswa.push(daftarsiswa)
-    }
-  },
+  
   computed : {
     resultQuery(){
       if(this.searchQuery){
@@ -128,6 +115,14 @@ export default {
       }
       return this.students.filter(student => !student.pembayaran.indexOf(this.pembayaran));
 
+    }
+  },
+  methods:{
+    simpanSiswa(){
+      // const daftarsiswa = {
+      //   form: this.form
+      // }
+      this.inputSiswa.push(this.form)
     }
   },
   
