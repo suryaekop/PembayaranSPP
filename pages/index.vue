@@ -17,24 +17,48 @@
       </div>
     </div>
   </div>
-    <div class="list-task row">
-      <CardItem v-for="student in filteredStudents" :key="student.nis" :student="student" :isGrid="isGrid" />
+  <div>
+        <h3>Hasil Submit Form </h3>
+        <ul>
+            <li v-for="daftarsiswa in inputSiswa" :key="daftarsiswa">{{ form }}</li>
+        </ul>
     </div>
+    <div class="list-task row">
+      <CardItem v-for="(daftarsiswa,s) in form" :key="s" :student="daftarsiswa" :isGrid="isGrid" />
+    </div>
+    <form v-on:submit.prevent="simpanSiswa">
     <div class="action py-2">
       <a v-if="!isCreating" href="#" class="add-button"  @click="isCreating=!isCreating">Add Task</a>
       <div v-else class="add-card">
         <div class="card mb-2">
           <div class="card-body d-flex flex-column p-0">
-            <input class="form-control border-0 mb-2" placeholder="Title" type="text">
-            <textarea class="form-control border-0 small" placeholder="Description" rows="3"></textarea>
+            <label class="label">Nis</label>
+            <input v-model="form.nis" class="form-control border-0 mb-2" placeholder="nis" type="text">
+            <label class="label">Nama Siswa</label>
+            <input v-model="form.nama" class="form-control border-0 mb-2" placeholder="Nama Siswa" type="text">
+            <label class="label">Kelas</label>
+            <select v-model="form.kelas">
+                    <option disabled value="">Nothing Selected</option>
+                    <option v-for="option in opsi.daftar_kelas" :key="option.value">{{ option.text }}</option>
+                </select>
+            <label class="label">Jenis Pembayaran</label>    
+            <label class="radio">
+              <input v-model="form.jenis_pembayaran" type="radio" value="Cash"> Cash
+            </label>
+            <label class="radio">
+              <input v-model="form.jenis_pembayaran" type="radio" value="Transfer"> Transfer
+            </label>
+            <label class="label">Alamat</label>
+            <textarea v-model="form.alamat" class="form-control border-0 small" placeholder="Alamat" rows="3"></textarea>
           </div>
         </div>
         <div class="button-wrapper d-flex">
-          <button class="btn btn-primary me-2">Save</button>
+          <button class="button is-primary">Submit</button>
           <button class="btn btn-outline-secondary" @click="isCreating=!isCreating">Cancel</button>
         </div>
       </div>
     </div>
+  </form>
     </div>
     </div>
 </template>
@@ -57,50 +81,31 @@ export default {
       isCreating: false,
       // daftar task
       pembayaran : '',
-      students : [
-        {
-          nis : '00832938',
-          nama : 'Surya',
-          kelas : 'X RPL 1',
-          pembayaran : 'cash',
-          isDone : false,
-        },
-        {
-          nis : '00832977',
-          nama : 'Ardi',
-          kelas : 'XI RPL 1',
-          pembayaran : 'transfer',
-          isDone : false,
-        },
-        {
-          nis : '00832967',
-          nama : 'Kurniawan',
-          kelas : 'XII RPL 2',
-          pembayaran : 'cash',
-          isDone : false,
-        },
-        {
-          nis : '00832999',
-          nama : 'Abdi',
-          kelas : 'X AKT 1',
-          pembayaran : 'transfer',
-          isDone : false,
-        },
-        {
-          nis : '00832955',
-          nama : 'Manu',
-          kelas : 'XI RPL 3',
-          pembayaran : 'cash',
-          isDone : false,
-        },
-        {
-          nis : '00832911',
-          nama : 'Jujun',
-          kelas : 'XI RPL 4',
-          pembayaran : 'cash',
-          isDone : false,
-        },
-      ],
+      form:{
+        nis: '',
+        nama: '',
+        kelas:'',
+        jenis_pembayaran: '',
+        alamat: '',
+      },
+      opsi: {
+        daftar_kelas:[
+          {value:'XIRPL3', text:'XI Rekayasa Perangkat Lunak 3'},
+          {value:'XIAKT1', text:'XI Akutansi 1'},
+          {value:'XIDKV1', text:'XI Desain Komunikasi Visual 1'},
+          {value:'XIANM1', text:'XI Animasi 1'},
+          {value:'XIRPL2', text:'XI Rekayasa Perangkat Lunak 2'},
+        ]
+      },
+      inputSiswa:[],
+    }
+  },
+  methods:{
+    simpanSiswa(){
+      const daftarsiswa = {
+        form: this.form
+      }
+      this.inputSiswa.push(daftarsiswa)
     }
   },
   computed : {
@@ -123,9 +128,11 @@ export default {
       }
       return this.students.filter(student => !student.pembayaran.indexOf(this.pembayaran));
 
-    },
-
+    }
   },
+  
+
+  
 }
 </script>
 <style>
