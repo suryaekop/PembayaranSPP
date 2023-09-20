@@ -102,20 +102,14 @@ computed : {
       return this.students
     }
   },
-  filteredStudents(){
-    if(!this.pembayaran){
-      return this.students;
-    }
-    return this.students.filter(student => !student.pembayaran.indexOf(this.pembayaran));
-
-  }
 },
 methods:{
   simpanSiswa(){
     // const daftarsiswa = {
     //   form: this.form
     // }
-    this.inputSiswa.push(this.form)
+    const daftarsiswa = {...this.form}
+    this.inputSiswa.push(daftarsiswa)
   }
 },
 

@@ -17,9 +17,9 @@
             'd-flex flex-column',
             task.isDone ? 'text-decoration-line-through fst-italic' : ''
             ]">
-            <div class="title-task mb-1">
+            <nuxt-link class="title-task mb-1" :to="'app/detail/' + task.id">
                 {{ task.title }}
-            </div>
+            </nuxt-link>
             <div class="description-task small text-muted">
                 {{ task.description }}
             </div>

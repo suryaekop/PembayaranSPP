@@ -10,22 +10,25 @@
         <div id="navbarSupportedContent" class="collapse navbar-collapse" >
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/">Home</a>
+        <nuxt-link class="nav-link" aria-current="page" to="/">Home</nuxt-link>
         </li>
         <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="/about">About</a>
+        <nuxt-link class="nav-link" aria-current="page" to="/app">Todo</nuxt-link>
         </li>
         <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="/contact">Contact Us</a>
+        <nuxt-link class="nav-link" aria-current="page" to="/about">About</nuxt-link>
         </li>
         <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="/latihan">Latihan</a>
+        <nuxt-link class="nav-link" aria-current="page" to="/contact">Contact Us</nuxt-link>
         </li>
         <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="/latihan1">Latihan If</a>
+        <nuxt-link class="nav-link" aria-current="page" to="/latihan">Latihan</nuxt-link>
         </li>
         <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="/form">Form</a>
+        <nuxt-link class="nav-link" aria-current="page" to="/artikel">Artikel</nuxt-link>
+        </li>
+        <li class="nav-item">
+        <nuxt-link class="nav-link" aria-current="page" to="/form">Form</nuxt-link>
         </li>
         </ul>
         </div>

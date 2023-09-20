@@ -14,6 +14,9 @@
 </template>
 <script>
 export default {
+  layout (content){
+    return 'custom'
+  }
 }
 </script>
 <style>
