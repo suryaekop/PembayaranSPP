@@ -19,10 +19,10 @@
         <nuxt-link class="nav-link" aria-current="page" to="/about">About</nuxt-link>
         </li>
         <li class="nav-item">
-        <nuxt-link class="nav-link" aria-current="page" to="/contact">Contact Us</nuxt-link>
+        <nuxt-link class="nav-link" aria-current="page" to="/task">Contact Us</nuxt-link>
         </li>
         <li class="nav-item">
-        <nuxt-link class="nav-link" aria-current="page" to="/latihan">Latihan</nuxt-link>
+        <nuxt-link class="nav-link" aria-current="page" to="/belajar">Latihan</nuxt-link>
         </li>
         <li class="nav-item">
         <nuxt-link class="nav-link" aria-current="page" to="/artikel">Artikel</nuxt-link>
