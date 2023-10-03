@@ -1,27 +1,14 @@
 <template>
-    <div class="container">
-        <header class="blog-header py-3">
-            <div class="row flex-nowrap justify-content-between align-items-center">
-                <div class="col-4 pt-1">
-                    <a class="link-secondary" href="#">Subscribe</a>
-                </div>
-                <div class="col-4 text-center">
-                    <a class="text-dark fs-4" href="#">Articles</a>
-                </div>
-                <div class="col-4 d-flex justify-content-end align-items-center">
-                    <a class="link-secondary" href="#" aria-label="Search">
-                        <svg xmlns:us-gaap="<http://www.w3.org/2000/svg>" width="20" height="20"
-                            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" class="mx-3" role="img" viewBox="0 0 24
-                            24">
-                            <title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21
-                            21l-5.2-5.2"/></svg>
-                        </a>
-                        <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
-                    </div>
-                </div>
-            </header>
-            </div>
-</template>
-
-    
+    <header class="sticky-top">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container">
+          <nuxt-link class="navbar-brand" to="/">Navbar</nuxt-link>
+          <nuxt-link class="navbar-brand" to="/form/tambah">Tambah</nuxt-link>
+        </div>
+      </nav>
+    </header>
+  </template>
+  
+  <script>
+  export default {}
+  </script>

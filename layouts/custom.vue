@@ -1,19 +1,16 @@
 <template>
-    <div id="app">
-        <HeaderWeb />
+    <main>
+        <HeaderWeb/>
+        <TheHeader/>
     <Nuxt />
-    <FooterWeb />
-    </div>
+</main>
 </template>
 <script>
 // Memanggil component sesuai lokasi masing - masing file
-import Header from "@/components/HeaderWeb.vue"
-import Footer from "@/components/FooterWeb.vue"
+import HeaderWeb from "~/components/HeaderWeb.vue";
+import TheHeader from "~/components/TheHeader.vue";
 export default {
-    layouts: {
-        Header,
-        Footer
-    }
+    components : {HeaderWeb, TheHeader}
 // Dideklarasikan agar dapat diakses oleh template
 }
 </script>

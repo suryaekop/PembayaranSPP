@@ -22,7 +22,7 @@
         <nuxt-link class="nav-link" aria-current="page" to="/task">Contact Us</nuxt-link>
         </li>
         <li class="nav-item">
-        <nuxt-link class="nav-link" aria-current="page" to="/belajar">Latihan</nuxt-link>
+        <nuxt-link class="nav-link" aria-current="page" to="/student">Latihan</nuxt-link>
         </li>
         <li class="nav-item">
         <nuxt-link class="nav-link" aria-current="page" to="/artikel">Artikel</nuxt-link>

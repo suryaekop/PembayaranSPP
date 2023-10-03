@@ -1,6 +1,5 @@
 <template>
     <div>
-        <TheHeader />
         <main class="container">
             <div class="row mb-2">
                 <div v-for="(task,index) in tasks" :key="index" class="col-4">
@@ -43,14 +42,10 @@
 </template>
 <script>
 import { mapActions } from "vuex";
-import TheHeader from "@/components/TheHeader.vue"
 
 export default{
     layout(context){
         return 'custom'
-    },
-    components :{
-        TheHeader,
     },
     data(){
         return{
