@@ -19,10 +19,6 @@ export default {
   scripts:
   {src : 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', body:true}
 },
-  env: {
-    supabaseApi: process.env.SUPABASE_API,
-    supabaseKey: process.env.SUPABASE_KEY,
-  },
 
 ssr:true,
 loading: {
@@ -59,7 +55,7 @@ loading: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     // baseURL: 'https://berita-indo-api.vercel.app',
     // baseURL: 'http://127.0.0.1:3333/api',
-    baseURL: process.env.SUPABASE_API,
+    baseURL: "https://vbragjrcmqiorydcblvt.supabase.co",
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

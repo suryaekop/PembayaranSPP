@@ -28,7 +28,7 @@
         <nuxt-link class="nav-link" aria-current="page" to="/artikel">Artikel</nuxt-link>
         </li>
         <li class="nav-item">
-        <nuxt-link class="nav-link" aria-current="page" to="/form">Form</nuxt-link>
+        <nuxt-link class="nav-link" aria-current="page" to="/isi">Form</nuxt-link>
         </li>
         </ul>
         </div>

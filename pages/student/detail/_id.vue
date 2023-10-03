@@ -1,24 +1,24 @@
 <template>
-    <div class="container">
-      <form id="tambah-artikel" @submit.prevent="onFormSubmit">
-        <input id="id" v-model="articleId" type="hidden" class="form-control" name="id">
-        <div class="form-group">
-          <label for="title">Judul Artikel</label>
-          <input id="title" v-model="title" type="text" class="form-control" name="title">
-        </div>
-        <div class="form-group">
-          <label for="content">Example textarea</label>
-          <textarea id="content" v-model="content" class="form-control" name="content" rows="3"></textarea>
-        </div>
-  
-        <button class="btn btn-primary" type="submit">Tambah Artikel</button>
-      </form>
+  <div class="container py-4">
+    <div class="card">
+      <img src="https" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">{{ content }}</p>
+      </div>
+      <button type="button" class="btn btn-primary" @click="onEdit">Edit artikel</button>
     </div>
-  </template>
-  
-  <script>
+    <div class="btn btn-outline-secondary btn-sm mb-3" @click="$router.go(-1)">Kembali</div>
+
+  </div>
+</template>
+
+<script>
   import httpClient from "~/utils/httpClient"
   export default {
+    layout(context){
+      return 'custom'
+    },
     data() {
       return {
         title: "",
@@ -38,16 +38,9 @@
         this.content = data[0]?.content
         this.articleId = data[0]?.id
       },
-      async onFormSubmit() {
-        const dataForm = {
-          title: document.getElementById("title").value,
-          content: document.getElementById("content").value,
-        }
-        const response = await httpClient("/rest/v1/article?id=eq." + this.articleId, "PATCH", JSON.stringify(dataForm))
-        
-        const data =  await response?.json()
-        this.$router.push(`/detail/${data[0]?.id}`)
-      }
+      onEdit() {
+      this.$router.push(`/form/${this.articleId}/Edit`)
+    }
     }
   }
   </script>

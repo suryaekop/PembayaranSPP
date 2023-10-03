@@ -5,10 +5,10 @@
  * @returns 
  */
 const httpClient = async(endpoint, method, data =  null) => {
-    const baseUrl = process.env.supabaseApi
+    const baseUrl = "https://vbragjrcmqiorydcblvt.supabase.co"
   
     const headers = {
-      apikey: process.env.supabaseKey,
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZicmFnanJjbXFpb3J5ZGNibHZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTUzODc0MTAsImV4cCI6MjAxMDk2MzQxMH0.fEV8q2eu-0UvrlOoG3KDCi8yaTXQAlhkoWOPTco1Uv0",
     }
     if (method === "POST" || method === "PATCH") {
       headers.Prefer = "return=representation"

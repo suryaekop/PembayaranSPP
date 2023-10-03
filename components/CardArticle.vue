@@ -5,7 +5,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ title }}</h5>
           <p class="card-text text-truncate">{{ content }}</p>
-          <nuxt-link :to="`/detail/${articleId}`" class="btn btn-primary">Go somewhere</nuxt-link>
+          <nuxt-link :to="'student/detail/' + articleId" class="btn btn-primary">Go somewhere</nuxt-link>
         </div>
       </div>
     </div>
