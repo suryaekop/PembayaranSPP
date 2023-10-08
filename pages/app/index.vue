@@ -1,124 +1,62 @@
 <template>
-    <div class="py-4">
-    <div class="container">
-    <div class="title border-bottom d-flex align-items-center justify-content-between py-2">
-      <h5>Sistem Informasi Pembayaran SPP</h5>
-      <div class="d-flex align-items-center ms-auto">
-        <button class="btn btn-outline-primary py-1 px-3 me-4" @click="shuffle">
-        Shuffle!
-        </button>
-        <input
-        type="text"
-        class="form-control"
-        placeholder="Search"
-        v-model="searchQuery"
-        >
-        <div class="d-flex align-item-center justify-content-end w-100">
-        <span class="me-2">View As</span>
-        <button
-        class="btn btn-outline-secondary py-1 px-3"
-        @click="isGrid=!isGrid" >
-        {{ isGrid ? 'Grid' : 'List' }}
-        </button>
-      </div>
-      </div>
-    </div>
-    <transition-group name="tasks" tag="div" class="list-task row">
-      <CardItem
-      v-for="task in resultQuery"
-      :key="task.id"
-      :task="task"
-      :isGrid="isGrid"
-      />
-    </transition-group>
-    <div class="action py-2">
-      <a
-        v-if="!isCreating" href="#" class="add-button"
-        @click="isCreating=!isCreating">Add Task</a>
-      <div v-else class="add-card">
-        <div class="card mb-2">
-          <div class="card-body d-flex flex-column p-0">
-          <input class="form-control border-0 mb-2" placeholder="Title" type="text">
-          <textarea
-          class="form-control border-0 small" placeholder="Description"
-          rows="3"></textarea>
-          </div>
-        </div>
-        <div class="button-wrapper d-flex">
-          <button class="btn btn-primary me-2">Save</button>
-          <button
-          class="btn btn-outline-secondary"
-          @click="isCreating =!isCreating">Cancel</button>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-  </template>
-  <script>
-  import _ from 'lodash'
-  import CardItem from "@/components/Card/CardItem.vue"
-  export default {
-    layout (context) {
-      return 'custom'
-    },
-    components: {
-      CardItem
-    },
-    data() {
-      return {
-        searchQuery: '',
-        // Tipe layout daftar task
-        isGrid: true,
-        // Status saat menambahkan task
-        isCreating: false,
-        // Daftar task
-        tasks: [
-          {
-            id: 1,
-            title: 'Task 1',
-            description: 'ini deskripsi 1',
-            isDone: false,
-          },
-          {
-            id: 2,
-            title: 'Tugas 2',
-            description: 'ini deskripsi 2',
-            isDone: false,
-          },
-          {
-            id : 3,
-            title: 'Kerja 3',
-            description: 'ini deskripsi 3',
-            isDone: false,
-          },
-        ]
-      }
-    },
-    computed: {
-      resultQuery() {
-        if (this.searchQuery) {
-          return this.tasks.filter((item) => {
-            return this.searchQuery
-            .toLowerCase()
-            .split(" ")
-            .every((v) => item.title.toLowerCase().includes(v));
-          });
-        } else {
-          console.log(this.tasks)
-          return this.tasks
-        }
-      }
-    },
-    methods:{
-      shuffle(){
-        this.tasks = _.shuffle(this.tasks)
-      }
+  <div class="container py-5">
+    <div class="row justify-content-between">
+      <h3 style="text-align: center;">Daftar Kelas</h3>
+      <nuxt-link class="navbar-brand" to="form/tambah_kelas">Tambah Kelas</nuxt-link>
+      <table class="table table-striped table-dark table-hover">
+<thead>
+  <tr style="text-align: center;">
+    <th scope="col">Id Kelas</th>
+    <th scope="col">Nama Kelas</th>
+    <th>Aksi</th>
+  </tr>
+</thead>
+<tbody>
+  <tr v-for="(item, kls) in kelas" :key="kls" style="text-align: center;">
+    <td>{{ item.kelas }}</td>
+    <td>{{ item.nama_kelas }}</td>
+    <td>
+      <nuxt-link :to="'app/detail/' + item.kelas" class="btn btn-primary">Detail</nuxt-link>|
+      <button type="submit" @click="deleteData(item.kelas)" class="btn btn-danger">Delete</button>
+    </td>
+  </tr>
+</tbody>
+</table>
+  </div>
+</div>
+</template>
+<script>
+export default{
+  layout(context){
+      return 'custom1'
+  },
+  name: 'IndexPage',
+  data() {
+    return {
+      kelas: [],
     }
+  },
+  mounted() {
+    this.getKelas();
+  },
+  methods: {
+    async getKelas() {
+      const response = await this.$axios.get("/rest/v1/kelas", {
+        headers: {
+          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1aWdnaGxzZ3RobHlvcndtcGhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY0MjkzNTQsImV4cCI6MjAxMjAwNTM1NH0.2NtXZeZgjN2-JG7ndnzAWY8mlviJe84LuG1IHE3NrA4"
+        }
+      })
+      this.kelas = response?.data
+    },
+    async deleteData(kelas){
+        const response = await this.$axios.delete("/rest/v1/kelas?kelas=eq." + kelas, {
+        headers: {
+          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1aWdnaGxzZ3RobHlvcndtcGhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY0MjkzNTQsImV4cCI6MjAxMjAwNTM1NH0.2NtXZeZgjN2-JG7ndnzAWY8mlviJe84LuG1IHE3NrA4"
+        }
+      })
+      this.kelas = response?.data
+      this.getKelas();
+    },
   }
-  </script>
-  <style>
-  #app .tasks-move{
-    transition: .3s;
-  }
-  </style>
+}
+</script>

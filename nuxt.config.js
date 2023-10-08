@@ -55,7 +55,7 @@ loading: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     // baseURL: 'https://berita-indo-api.vercel.app',
     // baseURL: 'http://127.0.0.1:3333/api',
-    baseURL: "https://vbragjrcmqiorydcblvt.supabase.co",
+    baseURL: "https://buigghlsgthlyorwmphi.supabase.co",
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

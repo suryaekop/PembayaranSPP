@@ -13,22 +13,16 @@
         <nuxt-link class="nav-link" aria-current="page" to="/">Home</nuxt-link>
         </li>
         <li class="nav-item">
-        <nuxt-link class="nav-link" aria-current="page" to="/app">Todo</nuxt-link>
+        <nuxt-link class="nav-link" aria-current="page" to="/student">Siswa</nuxt-link>
         </li>
         <li class="nav-item">
-        <nuxt-link class="nav-link" aria-current="page" to="/about">About</nuxt-link>
+        <nuxt-link class="nav-link" aria-current="page" to="/app">Kelas</nuxt-link>
         </li>
         <li class="nav-item">
-        <nuxt-link class="nav-link" aria-current="page" to="/task">Contact Us</nuxt-link>
+        <nuxt-link class="nav-link" aria-current="page" to="/tagihan">Tagihan</nuxt-link>
         </li>
         <li class="nav-item">
-        <nuxt-link class="nav-link" aria-current="page" to="/student">Latihan</nuxt-link>
-        </li>
-        <li class="nav-item">
-        <nuxt-link class="nav-link" aria-current="page" to="/artikel">Artikel</nuxt-link>
-        </li>
-        <li class="nav-item">
-        <nuxt-link class="nav-link" aria-current="page" to="/isi">Form</nuxt-link>
+        <nuxt-link class="nav-link" aria-current="page" to="/pembayaran">Pembayaran</nuxt-link>
         </li>
         </ul>
         </div>

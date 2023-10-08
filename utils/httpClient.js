@@ -5,10 +5,10 @@
  * @returns 
  */
 const httpClient = async(endpoint, method, data =  null) => {
-    const baseUrl = "https://vbragjrcmqiorydcblvt.supabase.co"
+    const baseUrl = "https://buigghlsgthlyorwmphi.supabase.co"
   
     const headers = {
-      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZicmFnanJjbXFpb3J5ZGNibHZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTUzODc0MTAsImV4cCI6MjAxMDk2MzQxMH0.fEV8q2eu-0UvrlOoG3KDCi8yaTXQAlhkoWOPTco1Uv0",
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1aWdnaGxzZ3RobHlvcndtcGhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY0MjkzNTQsImV4cCI6MjAxMjAwNTM1NH0.2NtXZeZgjN2-JG7ndnzAWY8mlviJe84LuG1IHE3NrA4",
     }
     if (method === "POST" || method === "PATCH") {
       headers.Prefer = "return=representation"
