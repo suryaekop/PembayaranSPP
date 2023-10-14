@@ -37,7 +37,7 @@
 </div>
 </template>
 <script>
-import NotifAlert from '../../components/NotifAlert.vue'
+import NotifAlert from '../../components/NotifAlert1.vue'
 export default{
   components: {
     NotifAlert

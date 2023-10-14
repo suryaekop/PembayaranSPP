@@ -108,7 +108,7 @@ export default{
             
             setTimeout(() => {
             this.$router.push(`/tagihan`)
-            })
+            },2000)
         }
     }
 

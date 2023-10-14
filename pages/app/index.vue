@@ -22,11 +22,16 @@
   </tr>
 </tbody>
 </table>
+<NotifAlert ref="notification"></NotifAlert>
   </div>
 </div>
 </template>
 <script>
+import NotifAlert from '../../components/NotifAlert1.vue';
 export default{
+  components: {
+    NotifAlert
+  },
   layout(context){
       return 'custom1'
   },
@@ -54,8 +59,14 @@ export default{
           apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1aWdnaGxzZ3RobHlvcndtcGhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY0MjkzNTQsImV4cCI6MjAxMjAwNTM1NH0.2NtXZeZgjN2-JG7ndnzAWY8mlviJe84LuG1IHE3NrA4"
         }
       })
-      this.kelas = response?.data
-      this.getKelas();
+      this.$refs.notification.showNotification("Data Berhasil Dihapus")
+        setTimeout(() => {
+          this.kelas = response?.data
+          this.$router.push('/app')
+          this.getKelas();
+
+            },2000)
+      
     },
   }
 }
